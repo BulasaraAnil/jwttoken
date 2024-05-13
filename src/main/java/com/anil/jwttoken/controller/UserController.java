@@ -1,6 +1,7 @@
 package com.anil.jwttoken.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,14 @@ public class UserController {
 	public void initRolesAndUsers() {
 		userService.initRoleAndUser();
 	}
+	
+	@GetMapping({"/forAdmin"})
+	public String forAdmin() {
+		return "The URL is only accessable for Admin";	
+		}
 
+	@GetMapping({"/forUser"})
+	public String forUser() {
+		return "The URL is only accesable for User";
+	}
 }
