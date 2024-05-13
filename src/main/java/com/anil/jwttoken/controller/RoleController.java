@@ -10,9 +10,11 @@ import com.anil.jwttoken.service.RoleService;
 
 @RestController
 public class RoleController {
-	
+
 	@Autowired
 	RoleService roleService; 
+	
+	
 	
 	@PostMapping({"/createNewRole"})
 	public Role createNewRole(@RequestBody Role role) {

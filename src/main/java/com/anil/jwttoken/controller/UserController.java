@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anil.jwttoken.entity.User;
 import com.anil.jwttoken.service.UserService;
 
+import jakarta.annotation.PostConstruct;
+
 @RestController
 public class UserController {
 	
@@ -17,6 +19,11 @@ public class UserController {
 	@PostMapping({"/registerNewUser"})
 	public User registerNewUser(@RequestBody User user) {
 		return userService.registerNewUser(user);
+	}
+	
+	@PostConstruct
+	public void initRolesAndUsers() {
+		userService.initRoleAndUser();
 	}
 
 }
